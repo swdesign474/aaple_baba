@@ -6,7 +6,7 @@
   <title>Dr. Baba Adhav Tribute</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter+Tight:wght@400;500;600&family=Mukta:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=Mukta:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --color-primary: #fdb414;
@@ -64,11 +64,8 @@
       gap: 6px;
     }
 
-    .lang-pair--wide {
-      gap: 18px;
-    }
-
-    .lang-pair--tight { gap: 2px; }
+    .lang-pair--wide { gap: 22px; }
+    .lang-pair--tight { gap: 12px; }
 
     .en-h1, .en-h2, .en-h3, .mr-h1, .mr-h2, .mr-h3,
     .en-body-lead, .en-body, .mr-body-lead, .mr-body {
@@ -80,6 +77,7 @@
       font-style: italic;
       font-weight: 700;
       letter-spacing: 0;
+      line-height: 1.08;
     }
 
     .mr-h1, .mr-h2, .mr-h3 {
@@ -93,7 +91,6 @@
     .en-h1, .mr-h1 { font-size: 44px; }
     .en-h2, .mr-h2 { font-size: 36px; }
     .en-h3, .mr-h3 { font-size: 30px; }
-    .en-h1, .en-h2, .en-h3 { line-height: 1.08; }
 
     .en-body-lead, .en-body {
       font-family: "Inter Tight", Arial, sans-serif;
@@ -112,26 +109,6 @@
     .en-body-lead { line-height: 1.45; }
     .en-body { line-height: 1.58; }
 
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: var(--color-background-soft);
-      border: 1px solid rgba(253, 180, 20, 0.22);
-      color: var(--color-accent-dark);
-      font: 500 14px/1.2 "Inter Tight", Arial, sans-serif;
-    }
-
-    .chip__dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--color-primary);
-      flex: 0 0 auto;
-    }
-
     .hero {
       position: relative;
       min-height: 100vh;
@@ -143,20 +120,19 @@
         linear-gradient(180deg, rgba(38, 60, 58, 0.10) 0%, rgba(38, 60, 58, 0.56) 64%, rgba(38, 60, 58, 0.82) 100%),
         url("assets/hero-image.jpg") center center / cover no-repeat;
     }
-    }
 
     .hero__block {
       grid-column: 1 / span 8;
-      max-width: 860px;
+      max-width: 720px;
       padding-top: 120px;
     }
 
     .hero .en-h1 { color: var(--color-white); }
-    .hero .mr-h1 { color: var(--color-primary); margin-top: -4px; }
-    .hero .en-body-lead,
-    .hero .mr-body-lead { color: rgba(255, 254, 255, 0.94); max-width: 780px; }
 
-    .hero-copy { margin-top: 22px; display: grid; gap: 18px; }
+    .hero .mr-h1 {
+      color: var(--color-primary);
+      margin-top: 0;
+    }
 
     .intro-card {
       grid-column: 1 / -1;
@@ -169,48 +145,30 @@
       gap: 28px;
     }
 
-    .intro-card__head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
     .intro-card__copy {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: var(--gutter-desktop);
     }
 
-    .intro-card__main { grid-column: 1 / span 9; display: grid; gap: 18px; }
-    .intro-card__side {
-      grid-column: 10 / span 3;
-      background: var(--color-background-soft);
-      border: 1px solid rgba(253, 180, 20, 0.24);
-      border-radius: 16px;
-      padding: 20px;
+    .intro-card__main {
+      grid-column: 2 / span 10;
       display: grid;
-      gap: 12px;
+      gap: 18px;
     }
 
-    .section-head {
-      grid-column: 1 / -1;
-      max-width: 860px;
-      margin-bottom: 28px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .media-grid,
-    .gallery-grid {
+    .media-grid {
       grid-column: 1 / -1;
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: var(--gutter-desktop);
     }
 
-    .video-card { grid-column: span 6; display: grid; gap: 14px; }
+    .video-card {
+      grid-column: span 6;
+      display: grid;
+      gap: 14px;
+    }
 
     .video-frame {
       position: relative;
@@ -222,21 +180,10 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .video-frame::before {
-      content: "Video — 16:9";
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      z-index: 2;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(38, 60, 58, 0.82);
-      color: var(--color-white);
-      font: 500 12px/1.2 "Inter Tight", Arial, sans-serif;
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
     }
-
-    .video-frame iframe { width: 100%; height: 100%; }
-    .video-caption { display: grid; gap: 8px; padding: 0 2px; }
 
     .gallery-carousel {
       grid-column: 1 / -1;
@@ -258,6 +205,7 @@
       cursor: pointer;
       box-shadow: var(--shadow-soft);
       transition: transform 0.2s ease, background 0.2s ease;
+      flex: 0 0 auto;
     }
 
     .carousel-btn:hover {
@@ -309,10 +257,6 @@
       background: var(--color-accent-dark);
     }
 
-    .carousel-meta {
-      display: none;
-    }
-
     .footer {
       margin-top: 24px;
       padding: 36px 0;
@@ -321,13 +265,17 @@
       border-top: 4px solid var(--color-primary);
     }
 
+    .footer .grid-12 {
+      align-items: center;
+    }
+
     .footer__logo {
       grid-column: 1 / span 4;
-      min-height: 86px;
+      min-height: 110px;
       padding: 8px 0;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       background: transparent;
     }
 
@@ -340,10 +288,12 @@
 
     .footer__content {
       grid-column: 8 / span 5;
+      min-height: 110px;
       text-align: right;
-      display: grid;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       gap: 10px;
-      align-self: end;
     }
 
     .footer__org {
@@ -359,90 +309,220 @@
       text-underline-offset: 3px;
     }
 
-    .footer__copy {
-      font: 400 13px/1.4 "Inter Tight", Arial, sans-serif;
-      color: rgba(255, 254, 255, 0.72);
-    }
-
     @media (max-width: 1280px) {
       .hero__block { grid-column: 1 / span 9; }
-      .intro-card__main { grid-column: 1 / span 8; }
-      .intro-card__side { grid-column: 9 / span 4; }
-      .carousel-card { flex-basis: min(38vw, 340px); }
+      .intro-card__main { grid-column: 2 / span 10; }
     }
 
     @media (max-width: 768px) {
-      .gallery-carousel { gap: 10px; }
+      .container {
+        width: min(100% - (2 * var(--gutter-mobile)), var(--max-content));
+      }
+
+      .grid-12,
+      .intro-card__copy,
+      .media-grid {
+        gap: 16px;
+      }
+
+      .section {
+        padding: var(--section-pad-tablet) 0;
+      }
+
+      .hero {
+        min-height: 78vh;
+        padding: 32px 0 40px;
+        background-position: center center;
+        align-items: flex-end;
+      }
+
+      .hero__block,
+      .intro-card,
+      .video-card,
+      .footer__logo,
+      .footer__content,
+      .intro-card__main {
+        grid-column: 1 / -1;
+      }
+
+      .hero__block {
+        max-width: 100%;
+        padding-top: 0;
+      }
+
+      .hero .lang-pair--tight {
+        gap: 12px;
+      }
+
+      .hero .en-h1 {
+        max-width: 100%;
+        font-size: 42px;
+        line-height: 1.02;
+      }
+
+      .hero .mr-h1 {
+        max-width: 100%;
+        font-size: 34px;
+        line-height: 1.45;
+        margin-top: 0;
+      }
+
+      .intro-card {
+        padding: 28px;
+        border-radius: 16px;
+      }
+
+      .intro-card__main .en-body,
+      .intro-card__main .mr-body {
+        font-size: 16px;
+      }
+
+      .intro-card__main .en-body {
+        line-height: 1.58;
+      }
+
+      .intro-card__main .mr-body {
+        line-height: 1.8;
+      }
+
+      .gallery-carousel {
+        gap: 10px;
+      }
+
       .carousel-btn {
         width: 46px;
         height: 46px;
         font-size: 24px;
       }
-      .carousel-stage { width: min(100%, 100% - 120px); }
-      .container { width: min(100% - (2 * var(--gutter-mobile)), var(--max-content)); }
-      .grid-12, .intro-card__copy, .media-grid, .gallery-grid { gap: 16px; }
-      .section { padding: var(--section-pad-tablet) 0; }
-      .hero { min-height: auto; padding: 40px 0 48px; }
-      .hero::after { top: 16px; right: 16px; }
-      .hero__block,
-      .intro-card,
-      .section-head,
-      .video-card,
+
+      .carousel-stage {
+        width: min(100%, calc(100% - 120px));
+      }
+
+      .footer {
+        padding: 28px 0 32px;
+      }
+
+      .footer .grid-12 {
+        align-items: center;
+        row-gap: 18px;
+      }
+
       .footer__logo,
-      .footer__content,
-      .intro-card__main,
-      .intro-card__side {
+      .footer__content {
         grid-column: 1 / -1;
       }
-      .hero__block { padding-top: 120px; }
-      .intro-card { padding: 28px; }
-      .footer__content { text-align: left; }
-      .carousel-card { flex-basis: min(72vw, 300px); }
-      .gallery-track { gap: 16px; animation-duration: 34s; }
-      .en-h1, .mr-h1 { font-size: 40px; }
+
+      .footer__logo {
+        justify-content: center;
+        min-height: auto;
+        padding: 0;
+      }
+
+      .footer__logo img {
+        max-height: 78px;
+      }
+
+      .footer__content {
+        min-height: auto;
+        text-align: center;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .footer__org {
+        font-size: 16px;
+        letter-spacing: 0.1em;
+      }
+
+      .footer__link {
+        font-size: 14px;
+      }
+
       .en-h2, .mr-h2 { font-size: 32px; }
       .en-h3, .mr-h3 { font-size: 27px; }
       .en-body-lead, .mr-body-lead { font-size: 20px; }
-      .en-body, .mr-body { font-size: 17px; }
-      .en-h1, .mr-h1 { font-size: 40px; }
-      .en-h2, .mr-h2 { font-size: 32px; }
-      .en-h3, .mr-h3 { font-size: 27px; }
-      .en-body-lead, .mr-body-lead { font-size: 20px; }
-      .en-body, .mr-body { font-size: 17px; }
     }
 
     @media (max-width: 375px) {
+      .section {
+        padding: var(--section-pad-mobile) 0;
+      }
+
+      .hero {
+        min-height: 74vh;
+        padding: 24px 0 32px;
+        background-position: center center;
+      }
+
+      .hero .en-h1 {
+        font-size: 34px;
+        line-height: 1.02;
+      }
+
+      .hero .mr-h1 {
+        font-size: 28px;
+        line-height: 1.5;
+      }
+
+      .intro-card {
+        padding: 20px;
+        border-radius: 14px;
+      }
+
+      .intro-card__main .en-body,
+      .intro-card__main .mr-body {
+        font-size: 15px;
+      }
+
       .gallery-carousel {
         display: grid;
         grid-template-columns: 1fr auto auto 1fr;
         align-items: center;
       }
+
       .carousel-stage {
         grid-column: 1 / -1;
         width: 100%;
         order: 1;
       }
+
       .carousel-btn--prev {
         grid-column: 2;
         order: 2;
         margin-top: 14px;
       }
+
       .carousel-btn--next {
         grid-column: 3;
         order: 2;
         margin-top: 14px;
       }
-      .section { padding: var(--section-pad-mobile) 0; }
-      .hero { padding: 24px 0 32px; }
-      .hero__block { padding-top: 96px; }
-      .intro-card { padding: 20px; }
-      .carousel-card { flex-basis: 84vw; }
-      .gallery-track { animation-duration: 30s; }
-      .en-h1, .mr-h1 { font-size: 34px; }
+
+      .footer {
+        padding: 24px 0 28px;
+      }
+
+      .footer .grid-12 {
+        row-gap: 14px;
+      }
+
+      .footer__logo img {
+        max-height: 64px;
+      }
+
+      .footer__org {
+        font-size: 14px;
+        letter-spacing: 0.08em;
+      }
+
+      .footer__link {
+        font-size: 13px;
+      }
+
       .en-h2, .mr-h2 { font-size: 28px; }
       .en-h3, .mr-h3 { font-size: 24px; }
       .en-body-lead, .mr-body-lead { font-size: 18px; }
-      .en-body, .mr-body { font-size: 16px; }
     }
   </style>
 </head>
@@ -451,9 +531,9 @@
     <div class="container">
       <div class="grid-12">
         <div class="hero__block">
-                    <div class="lang-pair lang-pair--tight" style="margin-top: 22px;">
+          <div class="lang-pair lang-pair--tight" style="margin-top: 22px;">
             <h1 class="en-h1">Our guiding light, Dr. Baba Adhav</h1>
-            <h1 class="mr-h1" style="margin-top: 10px;">आमचे मार्गदर्शक, डॉ. बाबा आढाव</h1>
+            <h1 class="mr-h1">आमचे मार्गदर्शक, डॉ. बाबा आढाव</h1>
           </div>
         </div>
       </div>
@@ -466,7 +546,7 @@
         <div class="grid-12">
           <article class="intro-card">
             <div class="intro-card__copy">
-              <div class="intro-card__main" style="grid-column: 2 / span 10;">
+              <div class="intro-card__main">
                 <div class="lang-pair lang-pair--wide">
                   <p class="en-body">Dr. Baba Adhav was a lifelong pillar of support for unorganised workers. He stood with those who keep cities running yet remain unseen within social and economic structures—waste pickers, hamals, rickshaw drivers, domestic workers, and other marginalised labouring communities. And fought for their dignity, rights, and recognition till his last breath. Baba, who defined progress through the lives of the most vulnerable, for us, is more than a leader— he's our moral compass on the journey towards the emancipation of the marginalised.</p>
                   <p class="mr-body">डॉ. बाबा आढाव हे असंघटित कष्टकऱ्यांचे अखंड आधारस्तंभ होते. शहर उभे ठेवणाऱ्या पण समाजरचनेत अदृश्य राहिलेल्या कामगार, कचरावेचक, हमाल, रिक्षाचालक आणि इतर वंचित घटकांच्या सन्मान, हक्क आणि मानवी प्रतिष्ठेसाठी त्यांनी आयुष्यभर संघर्ष केला. विकासाची व्याख्या शेवटच्या माणसाच्या नजरेतून पाहणारे बाबा आमच्यासाठी केवळ नेते नव्हते, तर कष्टकऱ्यांच्या प्रगतीच्या लांब प्रवासावर कायम दरवळत राहणारा दिशादर्शक सुगंध होते.</p>
@@ -486,13 +566,13 @@
               <div class="video-frame">
                 <iframe src="https://www.youtube.com/embed/JSvzvdNZ_Pk" title="Dr. Baba Adhav video 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               </div>
-              </article>
+            </article>
 
             <article class="video-card">
               <div class="video-frame">
                 <iframe src="https://www.youtube.com/embed/I9uTu0Df0jM" title="Dr. Baba Adhav video 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               </div>
-              </article>
+            </article>
           </div>
         </div>
       </div>
@@ -505,37 +585,37 @@
             <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Previous image">‹</button>
             <div class="carousel-stage">
               <div class="carousel-window">
-            <div class="gallery-track" id="galleryTrack">
-              <article class="carousel-card">
-                <figure class="image-card" data-label="Photo 01 — 4:5">
-                  <img src="assets/WM-IMG-2012.01.11-SWaCH-PCMC-Anniversary-1262.jpg" alt="Dr. Baba Adhav with a large gathering" />
-                </figure>
-              </article>
+                <div class="gallery-track" id="galleryTrack">
+                  <article class="carousel-card">
+                    <figure class="image-card">
+                      <img src="assets/WM-IMG-2012.01.11-SWaCH-PCMC-Anniversary-1262.jpg" alt="Dr. Baba Adhav with a large gathering" />
+                    </figure>
+                  </article>
 
-              <article class="carousel-card">
-                <figure class="image-card" data-label="Photo 03 — 4:5">
-                  <img src="assets/WM-IMG-2011.10.18-0476.jpg" alt="Dr. Baba Adhav speaking at an event" />
-                </figure>
-              </article>
+                  <article class="carousel-card">
+                    <figure class="image-card">
+                      <img src="assets/WM-IMG-2011.10.18-0476.jpg" alt="Dr. Baba Adhav speaking at an event" />
+                    </figure>
+                  </article>
 
-              <article class="carousel-card">
-                <figure class="image-card" data-label="Photo 04 — 4:5">
-                  <img src="assets/WM-IMG-Wastepicker-Meeting-PCMC-2013.02.20-0204.jpg" alt="Waste picker meeting photo" />
-                </figure>
-              </article>
+                  <article class="carousel-card">
+                    <figure class="image-card">
+                      <img src="assets/WM-IMG-Wastepicker-Meeting-PCMC-2013.02.20-0204.jpg" alt="Waste picker meeting photo" />
+                    </figure>
+                  </article>
 
-              <article class="carousel-card">
-                <figure class="image-card" data-label="Photo 05 — 4:5">
-                  <img src="assets/WM IMG (Pension Parishad) (2012.02.25) (10207).jpg" alt="Pension Parishad event image" />
-                </figure>
-              </article>
+                  <article class="carousel-card">
+                    <figure class="image-card">
+                      <img src="assets/WM IMG (Pension Parishad) (2012.02.25) (10207).jpg" alt="Pension Parishad event image" />
+                    </figure>
+                  </article>
 
-              <article class="carousel-card">
-                <figure class="image-card" data-label="Photo 06 — 4:5">
-                  <img src="assets/WM IMG (2012.10.04) (0041).jpg" alt="Archival image of Dr. Baba Adhav" />
-                </figure>
-              </article>
-            </div>
+                  <article class="carousel-card">
+                    <figure class="image-card">
+                      <img src="assets/WM IMG (2012.10.04) (0041).jpg" alt="Archival image of Dr. Baba Adhav" />
+                    </figure>
+                  </article>
+                </div>
               </div>
             </div>
             <button class="carousel-btn carousel-btn--next" type="button" aria-label="Next image">›</button>
@@ -554,12 +634,12 @@
 
         <div class="footer__content">
           <div class="footer__org">Kashtakari Panchayat</div>
-          <a class="footer__link" href="https://kashtakaripanchayat.org/">kashtakaripanchayat.org</a>
-          
+          <a class="footer__link" href="https://kashtakaripanchayat.org/" target="_blank" rel="noopener noreferrer">kashtakaripanchayat.org</a>
         </div>
       </div>
     </div>
   </footer>
+
   <script>
     (function () {
       const track = document.getElementById('galleryTrack');
