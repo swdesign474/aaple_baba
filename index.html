@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Baba Adhav Tribute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter+Tight:wght@400;500;600&family=Mukta:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #fdb414;
+      --color-primary-hover: #e2a000;
+      --color-accent-dark: #263c3a;
+      --color-accent-dark-soft: rgba(38, 60, 58, 0.92);
+      --color-accent-red: #9D0000;
+      --color-accent-red-soft: rgba(157, 0, 0, 0.12);
+      --color-background: #fffeff;
+      --color-background-soft: rgba(253, 180, 20, 0.08);
+      --color-border: rgba(38, 60, 58, 0.16);
+      --color-text: #263c3a;
+      --color-text-muted: rgba(38, 60, 58, 0.82);
+      --color-white: #fffeff;
+      --max-content: 1280px;
+      --gutter-desktop: 24px;
+      --gutter-mobile: 16px;
+      --section-pad-desktop: 96px;
+      --section-pad-tablet: 56px;
+      --section-pad-mobile: 40px;
+      --radius-card: 20px;
+      --radius-media: 20px;
+      --shadow-soft: 0 18px 40px rgba(38, 60, 58, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--color-background);
+      color: var(--color-text);
+      font-family: "Inter Tight", Arial, sans-serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, iframe { display: block; max-width: 100%; border: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(100% - (2 * var(--gutter-desktop)), var(--max-content));
+      margin: 0 auto;
+    }
+
+    .grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--gutter-desktop);
+    }
+
+    .section { padding: var(--section-pad-desktop) 0; }
+
+    .lang-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .lang-pair--tight { gap: 2px; }
+
+    .en-h1, .en-h2, .en-h3, .mr-h1, .mr-h2, .mr-h3,
+    .en-body-lead, .en-body, .mr-body-lead, .mr-body {
+      margin: 0;
+    }
+
+    .en-h1, .en-h2, .en-h3 {
+      font-family: "DM Serif Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .mr-h1, .mr-h2, .mr-h3 {
+      font-family: "Noto Serif Devanagari", serif;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.62;
+      letter-spacing: 0;
+    }
+
+    .en-h1, .mr-h1 { font-size: 44px; }
+    .en-h2, .mr-h2 { font-size: 36px; }
+    .en-h3, .mr-h3 { font-size: 30px; }
+    .en-h1, .en-h2, .en-h3 { line-height: 1.08; }
+
+    .en-body-lead, .en-body {
+      font-family: "Inter Tight", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    .mr-body-lead, .mr-body {
+      font-family: "Mukta", sans-serif;
+      font-weight: 400;
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+
+    .en-body-lead, .mr-body-lead { font-size: 21px; }
+    .en-body, .mr-body { font-size: 18px; }
+    .en-body-lead { line-height: 1.45; }
+    .en-body { line-height: 1.58; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--color-background-soft);
+      border: 1px solid rgba(253, 180, 20, 0.22);
+      color: var(--color-accent-dark);
+      font: 500 14px/1.2 "Inter Tight", Arial, sans-serif;
+    }
+
+    .chip__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 56px 0 64px;
+      color: var(--color-white);
+      background:
+        linear-gradient(180deg, rgba(38, 60, 58, 0.10) 0%, rgba(38, 60, 58, 0.56) 64%, rgba(38, 60, 58, 0.82) 100%),
+        url("assets/hero-image.jpg") center center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "Hero image — 16:9";
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 254, 255, 0.16);
+      border: 1px solid rgba(255, 254, 255, 0.24);
+      color: var(--color-white);
+      font: 500 13px/1.2 "Inter Tight", Arial, sans-serif;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero__block {
+      grid-column: 1 / span 8;
+      max-width: 860px;
+      padding-top: 120px;
+    }
+
+    .hero .en-h1 { color: var(--color-white); }
+    .hero .mr-h1 { color: var(--color-primary); margin-top: -4px; }
+    .hero .en-body-lead,
+    .hero .mr-body-lead { color: rgba(255, 254, 255, 0.94); max-width: 780px; }
+
+    .hero-copy { margin-top: 22px; display: grid; gap: 18px; }
+
+    .intro-card {
+      grid-column: 1 / -1;
+      background: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      padding: 40px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .intro-card__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .intro-card__copy {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--gutter-desktop);
+    }
+
+    .intro-card__main { grid-column: 1 / span 9; display: grid; gap: 18px; }
+    .intro-card__side {
+      grid-column: 10 / span 3;
+      background: var(--color-background-soft);
+      border: 1px solid rgba(253, 180, 20, 0.24);
+      border-radius: 16px;
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .section-head {
+      grid-column: 1 / -1;
+      max-width: 860px;
+      margin-bottom: 28px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .media-grid,
+    .gallery-grid {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--gutter-desktop);
+    }
+
+    .video-card { grid-column: span 6; display: grid; gap: 14px; }
+
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-media);
+      overflow: hidden;
+      background: var(--color-accent-dark);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .video-frame::before {
+      content: "Video — 16:9";
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(38, 60, 58, 0.82);
+      color: var(--color-white);
+      font: 500 12px/1.2 "Inter Tight", Arial, sans-serif;
+    }
+
+    .video-frame iframe { width: 100%; height: 100%; }
+    .video-caption { display: grid; gap: 8px; padding: 0 2px; }
+
+    .gallery-carousel {
+      grid-column: 1 / -1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: var(--gutter-desktop);
+      width: max-content;
+      animation: scrollGallery 42s linear infinite;
+      will-change: transform;
+    }
+
+    .gallery-carousel:hover .gallery-track {
+      animation-play-state: paused;
+    }
+
+    .gallery-track::-webkit-scrollbar { height: 0; }
+    .gallery-track::-webkit-scrollbar-thumb { background: transparent; }
+    .gallery-track::-webkit-scrollbar-track { background: transparent; }
+
+    @keyframes scrollGallery {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(-50% - (var(--gutter-desktop) / 2))); }
+    }
+
+    .carousel-card {
+      flex: 0 0 min(32vw, 360px);
+      display: grid;
+      gap: 12px;
+    }
+
+    .image-card {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-media);
+      overflow: hidden;
+      background: var(--color-background-soft);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .image-card::before {
+      content: attr(data-label);
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255, 254, 255, 0.92);
+      border: 1px solid var(--color-border);
+      color: var(--color-accent-dark);
+      font: 500 12px/1.2 "Inter Tight", Arial, sans-serif;
+    }
+
+    .image-card img { width: 100%; height: 100%; object-fit: cover; }
+
+    .carousel-meta {
+      display: grid;
+      gap: 6px;
+      padding: 0 2px;
+    }
+
+    .footer {
+      margin-top: 24px;
+      padding: 36px 0;
+      background: var(--color-accent-dark);
+      color: var(--color-white);
+      border-top: 4px solid var(--color-primary);
+    }
+
+    .footer__logo {
+      grid-column: 1 / span 4;
+      min-height: 86px;
+      border: 1px dashed rgba(255, 254, 255, 0.34);
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: rgba(255, 254, 255, 0.92);
+      font: 500 14px/1.45 "Inter Tight", Arial, sans-serif;
+      background: rgba(255, 254, 255, 0.03);
+    }
+
+    .footer__logo img {
+      max-height: 58px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer__content {
+      grid-column: 8 / span 5;
+      text-align: right;
+      display: grid;
+      gap: 10px;
+      align-self: end;
+    }
+
+    .footer__org {
+      font: 700 18px/1.2 "Inter Tight", Arial, sans-serif;
+      letter-spacing: 0.14em;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .footer__link {
+      font: 500 15px/1.5 "Inter Tight", Arial, sans-serif;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer__copy {
+      font: 400 13px/1.4 "Inter Tight", Arial, sans-serif;
+      color: rgba(255, 254, 255, 0.72);
+    }
+
+    @media (max-width: 1280px) {
+      .hero__block { grid-column: 1 / span 9; }
+      .intro-card__main { grid-column: 1 / span 8; }
+      .intro-card__side { grid-column: 9 / span 4; }
+      .carousel-card { flex-basis: min(38vw, 340px); }
+    }
+
+    @media (max-width: 768px) {
+      .container { width: min(100% - (2 * var(--gutter-mobile)), var(--max-content)); }
+      .grid-12, .intro-card__copy, .media-grid, .gallery-grid { gap: 16px; }
+      .section { padding: var(--section-pad-tablet) 0; }
+      .hero { min-height: auto; padding: 40px 0 48px; }
+      .hero::after { top: 16px; right: 16px; }
+      .hero__block,
+      .intro-card,
+      .section-head,
+      .video-card,
+      .footer__logo,
+      .footer__content,
+      .intro-card__main,
+      .intro-card__side {
+        grid-column: 1 / -1;
+      }
+      .hero__block { padding-top: 120px; }
+      .intro-card { padding: 28px; }
+      .footer__content { text-align: left; }
+      .carousel-card { flex-basis: min(72vw, 300px); }
+      .gallery-track { gap: 16px; animation-duration: 34s; }
+      .en-h1, .mr-h1 { font-size: 40px; }
+      .en-h2, .mr-h2 { font-size: 32px; }
+      .en-h3, .mr-h3 { font-size: 27px; }
+      .en-body-lead, .mr-body-lead { font-size: 20px; }
+      .en-body, .mr-body { font-size: 17px; }
+      .en-h1, .mr-h1 { font-size: 40px; }
+      .en-h2, .mr-h2 { font-size: 32px; }
+      .en-h3, .mr-h3 { font-size: 27px; }
+      .en-body-lead, .mr-body-lead { font-size: 20px; }
+      .en-body, .mr-body { font-size: 17px; }
+    }
+
+    @media (max-width: 375px) {
+      .section { padding: var(--section-pad-mobile) 0; }
+      .hero { padding: 24px 0 32px; }
+      .hero__block { padding-top: 96px; }
+      .intro-card { padding: 20px; }
+      .carousel-card { flex-basis: 84vw; }
+      .gallery-track { animation-duration: 30s; }
+      .en-h1, .mr-h1 { font-size: 34px; }
+      .en-h2, .mr-h2 { font-size: 28px; }
+      .en-h3, .mr-h3 { font-size: 24px; }
+      .en-body-lead, .mr-body-lead { font-size: 18px; }
+      .en-body, .mr-body { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="grid-12">
+        <div class="hero__block">
+          <div class="chip"><span class="chip__dot"></span>Editable bilingual tribute page</div>
+          <div class="lang-pair lang-pair--tight" style="margin-top: 22px;">
+            <h1 class="en-h1">Our guiding light, Dr. Baba Adhav</h1>
+            <h1 class="mr-h1">डॉ. बाबा आढाव यांचा गौरव</h1>
+          </div>
+          <div class="hero-copy">
+            <div class="lang-pair">
+              <p class="en-body-lead">A memorial page built for archival media, bilingual storytelling, and straightforward GitHub deployment.</p>
+              <p class="mr-body-lead">दृश्य दस्तऐवजीकरण, द्विभाषिक आशय, आणि GitHub वर सरळ प्रकाशित करता येईल अशा रचनेतील स्मरणपृष्ठ.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="grid-12">
+          <article class="intro-card">
+            <div class="intro-card__head">
+              <div class="lang-pair">
+                <h2 class="en-h2">Introduction</h2>
+                <h2 class="mr-h2">प्रस्तावना</h2>
+              </div>
+              <div class="chip"><span class="chip__dot"></span>All text remains editable</div>
+            </div>
+
+            <div class="intro-card__copy">
+              <div class="intro-card__main">
+                <div class="lang-pair">
+                  <p class="en-body">Dr. Baba Adhav was a lifelong pillar of support for unorganised workers. He stood with those who keep cities running yet remain unseen within social and economic structures—waste pickers, hamals, rickshaw drivers, domestic workers, and other marginalised labouring communities. And fought for their dignity, rights, and recognition till his last breath. Baba, who defined progress through the lives of the most vulnerable, for us, is more than a leader— he's our moral compass on the journey towards the emancipation of the marginalised.</p>
+                  <p class="mr-body">डॉ. बाबा आढाव हे असंघटित कष्टकऱ्यांचे अखंड आधारस्तंभ होते. शहर उभे ठेवणाऱ्या पण समाजरचनेत अदृश्य राहिलेल्या कामगार, कचरावेचक, हमाल, रिक्षाचालक आणि इतर वंचित घटकांच्या सन्मान, हक्क आणि मानवी प्रतिष्ठेसाठी त्यांनी आयुष्यभर संघर्ष केला. विकासाची व्याख्या शेवटच्या माणसाच्या नजरेतून पाहणारे बाबा आमच्यासाठी केवळ नेते नव्हते, तर कष्टकऱ्यांच्या प्रगतीच्या लांब प्रवासावर कायम दरवळत राहणारा दिशादर्शक सुगंध होते.</p>
+                </div>
+              </div>
+
+              <aside class="intro-card__side">
+                <div class="lang-pair">
+                  <h3 class="en-h3">Build notes</h3>
+                  <h3 class="mr-h3">रचना नोंदी</h3>
+                </div>
+                <div class="lang-pair">
+                  <p class="en-body">Use relative asset paths in the GitHub repo. Place all images inside an <strong>assets/</strong> folder before publishing.</p>
+                  <p class="mr-body">GitHub रेपोत सर्व चित्रांसाठी relative path वापरा. प्रकाशित करण्यापूर्वी सर्व छायाचित्रे <strong>assets/</strong> फोल्डरमध्ये ठेवा.</p>
+                </div>
+              </aside>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-12">
+          <div class="section-head">
+            <div class="lang-pair">
+              <h2 class="en-h2">Video archive</h2>
+              <h2 class="mr-h2">व्हिडिओ संग्रह</h2>
+            </div>
+            <div class="lang-pair">
+              <p class="en-body">These two videos are already embedded. Captions can be revised later if needed.</p>
+              <p class="mr-body">हे दोन व्हिडिओ आधीच एम्बेड केलेले आहेत. गरजेनुसार कॅप्शन नंतर बदलता येतील.</p>
+            </div>
+          </div>
+
+          <div class="media-grid">
+            <article class="video-card">
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/JSvzvdNZ_Pk" title="Dr. Baba Adhav video 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption lang-pair">
+                <p class="en-body">Archival video 1.</p>
+                <p class="mr-body">संग्रहातील व्हिडिओ १.</p>
+              </div>
+            </article>
+
+            <article class="video-card">
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/I9uTu0Df0jM" title="Dr. Baba Adhav video 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption lang-pair">
+                <p class="en-body">Archival video 2.</p>
+                <p class="mr-body">संग्रहातील व्हिडिओ २.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-12">
+          <div class="section-head">
+            <div class="lang-pair">
+              <h2 class="en-h2">Photo carousel</h2>
+              <h2 class="mr-h2">छायाचित्र फेरफटका</h2>
+            </div>
+            <div class="lang-pair">
+              <p class="en-body">The gallery below uses the six images you shared. Add these files to the repo’s <strong>assets/</strong> folder with the exact filenames shown here.</p>
+              <p class="mr-body">खालील गॅलरीत तुम्ही शेअर केलेली सहा छायाचित्रे जोडलेली आहेत. ही फाईल्स रेपोतील <strong>assets/</strong> फोल्डरमध्ये खालील नावांनी ठेवावीत.</p>
+            </div>
+          </div>
+
+          <div class="gallery-carousel">
+            <div class="gallery-track">
+              <article class="carousel-card">
+                <figure class="image-card" data-label="Photo 01 — 4:5">
+                  <img src="assets/WM-IMG-2012.01.11-SWaCH-PCMC-Anniversary-1262.jpg" alt="Dr. Baba Adhav with a large gathering" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM-IMG-2012.01.11-SWaCH-PCMC-Anniversary-1262.jpg</p>
+                  <p class="mr-body">सभेसमोरचे छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card">
+                <figure class="image-card" data-label="Photo 02 — 4:5">
+                  <img src="assets/WM-Scholarship-Day-People-0822-19.jpg" alt="Community gathering in a hall" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM-Scholarship-Day-People-0822-19.jpg</p>
+                  <p class="mr-body">समुदाय बैठकीतील छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card">
+                <figure class="image-card" data-label="Photo 03 — 4:5">
+                  <img src="assets/WM-IMG-2011.10.18-0476.jpg" alt="Dr. Baba Adhav speaking at an event" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM-IMG-2011.10.18-0476.jpg</p>
+                  <p class="mr-body">कार्यक्रमातील भाषणाचे छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card">
+                <figure class="image-card" data-label="Photo 04 — 4:5">
+                  <img src="assets/WM-IMG-Wastepicker-Meeting-PCMC-2013.02.20-0204.jpg" alt="Waste picker meeting photo" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM-IMG-Wastepicker-Meeting-PCMC-2013.02.20-0204.jpg</p>
+                  <p class="mr-body">कचरावेचक बैठकीतील छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card">
+                <figure class="image-card" data-label="Photo 05 — 4:5">
+                  <img src="assets/WM IMG (Pension Parishad) (2012.02.25) (10207).jpg" alt="Pension Parishad event image" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM IMG (Pension Parishad) (2012.02.25) (10207).jpg</p>
+                  <p class="mr-body">पेन्शन परिषदेतले छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card">
+                <figure class="image-card" data-label="Photo 06 — 4:5">
+                  <img src="assets/WM IMG (2012.10.04) (0041).jpg" alt="Archival image of Dr. Baba Adhav" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM IMG (2012.10.04) (0041).jpg</p>
+                  <p class="mr-body">संग्रहातील आणखी एक छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card" aria-hidden="true">
+                <figure class="image-card" data-label="Photo 01 — 4:5">
+                  <img src="assets/WM-IMG-2012.01.11-SWaCH-PCMC-Anniversary-1262.jpg" alt="" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM-IMG-2012.01.11-SWaCH-PCMC-Anniversary-1262.jpg</p>
+                  <p class="mr-body">सभेसमोरचे छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card" aria-hidden="true">
+                <figure class="image-card" data-label="Photo 02 — 4:5">
+                  <img src="assets/WM-Scholarship-Day-People-0822-19.jpg" alt="" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM-Scholarship-Day-People-0822-19.jpg</p>
+                  <p class="mr-body">समुदाय बैठकीतील छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card" aria-hidden="true">
+                <figure class="image-card" data-label="Photo 03 — 4:5">
+                  <img src="assets/WM-IMG-2011.10.18-0476.jpg" alt="" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM-IMG-2011.10.18-0476.jpg</p>
+                  <p class="mr-body">कार्यक्रमातील भाषणाचे छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card" aria-hidden="true">
+                <figure class="image-card" data-label="Photo 04 — 4:5">
+                  <img src="assets/WM-IMG-Wastepicker-Meeting-PCMC-2013.02.20-0204.jpg" alt="" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM-IMG-Wastepicker-Meeting-PCMC-2013.02.20-0204.jpg</p>
+                  <p class="mr-body">कचरावेचक बैठकीतील छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card" aria-hidden="true">
+                <figure class="image-card" data-label="Photo 05 — 4:5">
+                  <img src="assets/WM IMG (Pension Parishad) (2012.02.25) (10207).jpg" alt="" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM IMG (Pension Parishad) (2012.02.25) (10207).jpg</p>
+                  <p class="mr-body">पेन्शन परिषदेतले छायाचित्र.</p>
+                </div>
+              </article>
+
+              <article class="carousel-card" aria-hidden="true">
+                <figure class="image-card" data-label="Photo 06 — 4:5">
+                  <img src="assets/WM IMG (2012.10.04) (0041).jpg" alt="" />
+                </figure>
+                <div class="carousel-meta lang-pair">
+                  <p class="en-body">WM IMG (2012.10.04) (0041).jpg</p>
+                  <p class="mr-body">संग्रहातील आणखी एक छायाचित्र.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="grid-12">
+        <div class="footer__logo">
+          <img src="assets/KPT Name Only logo(1).png" alt="Kashtakari Panchayat logo" />
+        </div>
+
+        <div class="footer__content">
+          <div class="footer__org">Kashtakari Panchayat</div>
+          <a class="footer__link" href="https://kashtakaripanchayat.org/">kashtakaripanchayat.org</a>
+          <div class="footer__copy">© 2026 | all rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
